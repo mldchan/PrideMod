@@ -15,8 +15,8 @@ namespace PrideMod.Features
         {
             var hud = GameObject.Find("GUI/HUD");
 
-            var hunger = hud.transform.GetChild(2).Find("HUDLabel").gameObject.GetComponent<TextMesh>();
-            var thirst = hud.transform.GetChild(3).Find("HUDLabel").gameObject.GetComponent<TextMesh>();
+            var hunger = hud.transform.GetChild(3).Find("HUDLabel").gameObject.GetComponent<TextMesh>();
+            var thirst = hud.transform.GetChild(2).Find("HUDLabel").gameObject.GetComponent<TextMesh>();
             var stress = hud.transform.GetChild(4).Find("HUDLabel").gameObject.GetComponent<TextMesh>();
             var urine = hud.transform.GetChild(5).Find("HUDLabel").gameObject.GetComponent<TextMesh>();
             var fatigue = hud.transform.GetChild(6).Find("HUDLabel").gameObject.GetComponent<TextMesh>();
@@ -38,7 +38,7 @@ namespace PrideMod.Features
                     thirst.color = new Color(1f, 0.6705f, 0.7294f);
                     stress.color = new Color(0.9803f, 0.9803f, 0.9803f);
                     urine.color = new Color(1f, 0.6705f, 0.7294f);
-                    fatigue.color = new Color(1, 0.8117f, 0.9960f);
+                    fatigue.color = new Color(0.0039f, 0.6705f, 0.9960f);
                     break;
                 case 3:
                     hunger.color = new Color(1f, 0.9568f, 0.2f);
