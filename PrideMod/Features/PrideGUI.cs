@@ -26,25 +26,25 @@ namespace PrideMod.Features
             switch (dropDownList.GetSelectedItemIndex())
             {
                 case 1:
-                    hunger.color = new Color(228, 3, 3);
-                    thirst.color = new Color(255, 140, 0);
-                    stress.color = new Color(255, 237, 0);
-                    urine.color = new Color(0, 128, 38);
-                    fatigue.color = new Color(0, 77, 255);
-                    dirtiness.color = new Color(117, 7, 135);
+                    hunger.color = new Color(0.894f, 0.0117f, 0.0117f);
+                    thirst.color = new Color(1f, 0.549f, 0);
+                    stress.color = new Color(1f, 0.9294f, 0);
+                    urine.color = new Color(0, 0.5019f, 0.1490f);
+                    fatigue.color = new Color(0, 0.3019f, 1f);
+                    dirtiness.color = new Color(0.4588f, 0.0274f, 0.5294f);
                     break;
                 case 2:
-                    hunger.color = new Color(1, 207, 254);
-                    thirst.color = new Color(255, 171, 186);
-                    stress.color = new Color(250, 250, 250);
-                    urine.color = new Color(255, 171, 186);
-                    fatigue.color = new Color(1, 207, 254);
+                    hunger.color = new Color(0.0039f, 0.6705f, 0.9960f);
+                    thirst.color = new Color(1f, 0.6705f, 0.7294f);
+                    stress.color = new Color(0.9803f, 0.9803f, 0.9803f);
+                    urine.color = new Color(1f, 0.6705f, 0.7294f);
+                    fatigue.color = new Color(1, 0.8117f, 0.9960f);
                     break;
                 case 3:
-                    hunger.color = new Color(255, 244, 51);
-                    thirst.color = new Color(255, 255, 255);
-                    stress.color = new Color(155, 89, 208);
-                    urine.color = new Color(45, 45, 45);
+                    hunger.color = new Color(1f, 0.9568f, 0.2f);
+                    thirst.color = new Color(1f, 1f, 1f);
+                    stress.color = new Color(0.6078f, 0.3490f, 0.8156f);
+                    urine.color = new Color(0.1764f, 0.1764f, 0.1764f);
                     break;
             }
         }
