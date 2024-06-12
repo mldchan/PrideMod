@@ -31,7 +31,7 @@ namespace PrideMod
 
             PrideGUISelection = Settings.AddDropDownList(this, "PrideGUI", "Pride GUI type", new string[]
             {
-                "Default", "LGBTQ", "Transgender", "NonBinary"
+                "Default", "LGBTQ", "Transgender", "NonBinary", "Pansexual"
             }, 1);
         }
 

@@ -10,7 +10,7 @@ namespace PrideMod.Features
     internal class PrideGUI
     {
 
-        // 0 - none, 1 - gay menu, 2 - trans menu, 3 - nb menu
+        // 0 - none, 1 - gay menu, 2 - trans menu, 3 - nb menu, 4 - pan menu
         public static void Load(SettingsDropDownList dropDownList)
         {
             var hud = GameObject.Find("GUI/HUD");
@@ -45,6 +45,14 @@ namespace PrideMod.Features
                     thirst.color = new Color(1f, 1f, 1f);
                     stress.color = new Color(0.6078f, 0.3490f, 0.8156f);
                     urine.color = new Color(0.1764f, 0.1764f, 0.1764f);
+                    break;
+                case 4:
+                    hunger.color = new Color(1, 0x21 / 255f, 0x8C / 255f);
+                    thirst.color = new Color(1, 0x21 / 255f, 0x8C / 255f);
+                    stress.color = new Color(1, 0xD8 / 255f, 0);
+                    urine.color = new Color(1, 0xD8 / 255f, 0);
+                    fatigue.color = new Color(0x21 / 255f, 0xB1 / 255f, 1);
+                    dirtiness.color = new Color(0x21 / 255f, 0xB1 / 255f, 1);
                     break;
             }
         }
