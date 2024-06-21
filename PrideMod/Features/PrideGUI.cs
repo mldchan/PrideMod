@@ -26,36 +26,65 @@ namespace PrideMod.Features
             switch (dropDownList.GetSelectedItemIndex())
             {
                 case 1:
-                    hunger.color = new Color(0.894f, 0.0117f, 0.0117f);
-                    thirst.color = new Color(1f, 0.549f, 0);
-                    stress.color = new Color(1f, 0.9294f, 0);
-                    urine.color = new Color(0, 0.5019f, 0.1490f);
-                    fatigue.color = new Color(0, 0.3019f, 1f);
-                    dirtiness.color = new Color(0.4588f, 0.0274f, 0.5294f);
+                    hunger.color = new Color32(228, 3, 3, 255);
+                    thirst.color = new Color32(255, 140, 0, 255);
+                    stress.color = new Color32(255, 237, 0, 255);
+                    urine.color = new Color32(0, 128, 38, 255);
+                    fatigue.color = new Color32(0, 77, 255, 255);
+                    dirtiness.color = new Color32(117, 7, 135, 255);
                     break;
                 case 2:
-                    hunger.color = new Color(0.0039f, 0.6705f, 0.9960f);
-                    thirst.color = new Color(1f, 0.6705f, 0.7294f);
-                    stress.color = new Color(0.9803f, 0.9803f, 0.9803f);
-                    urine.color = new Color(1f, 0.6705f, 0.7294f);
-                    fatigue.color = new Color(0.0039f, 0.6705f, 0.9960f);
+                    hunger.color = new Color32(1, 171, 254, 255);
+                    thirst.color = new Color32(255, 171, 186, 255);
+                    stress.color = new Color32(250, 250, 250, 255);
+                    urine.color = new Color32(255, 171, 186, 255);
+                    fatigue.color = new Color32(1, 171, 254, 255);
                     break;
                 case 3:
-                    hunger.color = new Color(1f, 0.9568f, 0.2f);
-                    thirst.color = new Color(1f, 1f, 1f);
-                    stress.color = new Color(0.6078f, 0.3490f, 0.8156f);
-                    urine.color = new Color(0.1764f, 0.1764f, 0.1764f);
+                    hunger.color = new Color32(255, 244, 51, 255);
+                    thirst.color = new Color32(255, 255, 255, 255);
+                    stress.color = new Color32(155, 89, 208, 255);
+                    urine.color = new Color32(45, 45, 45, 255);
                     break;
                 case 4:
-                    hunger.color = new Color(1, 0x21 / 255f, 0x8C / 255f);
-                    thirst.color = new Color(1, 0x21 / 255f, 0x8C / 255f);
-                    stress.color = new Color(1, 0xD8 / 255f, 0);
-                    urine.color = new Color(1, 0xD8 / 255f, 0);
-                    fatigue.color = new Color(0x21 / 255f, 0xB1 / 255f, 1);
-                    dirtiness.color = new Color(0x21 / 255f, 0xB1 / 255f, 1);
+                    hunger.color = new Color32(255, 33, 140, 255);
+                    thirst.color = new Color32(255, 33, 140, 255);
+                    stress.color = new Color32(255, 216, 0, 255);
+                    urine.color = new Color32(255, 216, 0, 255);
+                    fatigue.color = new Color32(33, 177, 255, 255);
+                    dirtiness.color = new Color32(33, 177, 255, 255);
+                    break;
+                case 5:
+                    hunger.color = new Color32(255, 255, 255, 255);
+                    thirst.color = new Color32(255, 255, 255, 255);
+                    stress.color = new Color32(255, 255, 255, 255);
+                    urine.color = new Color32(210, 31, 60, 255);
+                    fatigue.color = new Color32(210, 31, 60, 255);
+                    dirtiness.color = new Color32(210, 31, 60, 255);
+                    break;
+                case 6:
+                    hunger.color = customPickers[0].GetValue();
+                    thirst.color = customPickers[1].GetValue();
+                    stress.color = customPickers[2].GetValue();
+                    urine.color = customPickers[3].GetValue();
+                    fatigue.color = customPickers[4].GetValue();
+                    dirtiness.color = customPickers[5].GetValue();
+                    money.color = customPickers[6].GetValue();
                     break;
             }
         }
 
+        internal static SettingsColorPicker[] customPickers = new SettingsColorPicker[7];
+
+        internal static void SetColours(SettingsColorPicker color1, SettingsColorPicker color2, SettingsColorPicker color3, SettingsColorPicker color4, SettingsColorPicker color5, SettingsColorPicker color6, SettingsColorPicker color7)
+        {
+            customPickers[0] = color1;
+            customPickers[1] = color2;
+            customPickers[2] = color3;  
+            customPickers[3] = color4;
+            customPickers[4] = color5;
+            customPickers[5] = color6;
+            customPickers[6] = color7;
+        }
     }
 }
