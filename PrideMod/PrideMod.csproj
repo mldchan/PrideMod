@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>A:\SteamLibrary\steamapps\common\My Summer Car\mysummercar_Data\Managed\0Harmony.dll</HintPath>
+    </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>A:\SteamLibrary\steamapps\common\My Summer Car\mysummercar_Data\Managed\Assembly-CSharp.dll</HintPath>
     </Reference>
@@ -63,7 +66,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Features\MSCOwOify\Identity.cs" />
+    <Compile Include="Features\MSCOwOify\MscOwOify.cs" />
+    <Compile Include="Features\MSCOwOify\Uwuifier.cs" />
+    <Compile Include="Features\MSCOwOify\UwuifyScript.cs" />
     <Compile Include="Features\PrideGUI.cs" />
+    <Compile Include="Patches\MSCOwOify\GUIContent.cs" />
     <Compile Include="Pride.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
