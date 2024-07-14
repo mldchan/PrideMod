@@ -11,7 +11,7 @@ namespace PrideMod
     {
         public override string ID => "PrideMod";
 
-        public override string Version => "0.2";
+        public override string Version => "0.3";
 
         public override string Author => "アカツキ";
 
