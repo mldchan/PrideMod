@@ -13,37 +13,37 @@
             {
                 case "Woman":
                 {
-                    text = text.Replace("man", "woman");
-                    text = text.Replace("male", "female");
-                    text = text.Replace("boy", "girl");
+                    text = text.Replace(" man ", "woman");
+                    text = text.Replace(" male ", "female");
+                    text = text.Replace(" boy ", "girl");
                     break;
                 }
                 case "Femboy":
                 {
-                    text = text.Replace("man", "femboy");
-                    text = text.Replace("male", "femboy");
-                    text = text.Replace("boy", "femboy");
+                    text = text.Replace(" man ", "femboy");
+                    text = text.Replace(" male ", "femboy");
+                    text = text.Replace(" boy ", "femboy");
                     break;
                 }
                 case "TransGirl":
                 {
-                    text = text.Replace("man", "transfem");
-                    text = text.Replace("male", "transfem");
-                    text = text.Replace("boy", "trans girl");
+                    text = text.Replace(" man ", "transfem");
+                    text = text.Replace(" male ", "transfem");
+                    text = text.Replace(" boy ", "trans girl");
                     break;
                 }
                 case "TransBoy":
                 {
-                    text = text.Replace("man", "transmasc");
-                    text = text.Replace("male", "transmasc");
-                    text = text.Replace("boy", "trans boy");
+                    text = text.Replace(" man ", "transmasc");
+                    text = text.Replace(" male ", "transmasc");
+                    text = text.Replace(" boy ", "trans boy");
                     break;
                 }
                 case "Enby":
                 {
-                    text = text.Replace("man", "enby");
-                    text = text.Replace("male", "enby");
-                    text = text.Replace("boy", "enby");
+                    text = text.Replace(" man ", "enby");
+                    text = text.Replace(" male ", "enby");
+                    text = text.Replace(" boy ", "enby");
                     break;
                 }
             }
