@@ -13,15 +13,15 @@ namespace PrideMod.Features
         // 0 - none, 1 - gay menu, 2 - trans menu, 3 - nb menu, 4 - pan menu
         public static void Load(SettingsDropDownList dropDownList)
         {
-            var hud = GameObject.Find("GUI/HUD");
+            GameObject hud = GameObject.Find("GUI/HUD");
 
-            var hunger = hud.transform.GetChild(3).Find("HUDLabel").gameObject.GetComponent<TextMesh>();
-            var thirst = hud.transform.GetChild(2).Find("HUDLabel").gameObject.GetComponent<TextMesh>();
-            var stress = hud.transform.GetChild(4).Find("HUDLabel").gameObject.GetComponent<TextMesh>();
-            var urine = hud.transform.GetChild(5).Find("HUDLabel").gameObject.GetComponent<TextMesh>();
-            var fatigue = hud.transform.GetChild(6).Find("HUDLabel").gameObject.GetComponent<TextMesh>();
-            var dirtiness = hud.transform.GetChild(7).Find("HUDLabel").gameObject.GetComponent<TextMesh>();
-            var money = hud.transform.GetChild(8).Find("HUDLabel").gameObject.GetComponent<TextMesh>();
+            TextMesh hunger = hud.transform.GetChild(3).Find("HUDLabel").gameObject.GetComponent<TextMesh>();
+            TextMesh thirst = hud.transform.GetChild(2).Find("HUDLabel").gameObject.GetComponent<TextMesh>();
+            TextMesh stress = hud.transform.GetChild(4).Find("HUDLabel").gameObject.GetComponent<TextMesh>();
+            TextMesh urine = hud.transform.GetChild(5).Find("HUDLabel").gameObject.GetComponent<TextMesh>();
+            TextMesh fatigue = hud.transform.GetChild(6).Find("HUDLabel").gameObject.GetComponent<TextMesh>();
+            TextMesh dirtiness = hud.transform.GetChild(7).Find("HUDLabel").gameObject.GetComponent<TextMesh>();
+            TextMesh money = hud.transform.GetChild(8).Find("HUDLabel").gameObject.GetComponent<TextMesh>();
 
             switch (dropDownList.GetSelectedItemIndex())
             {

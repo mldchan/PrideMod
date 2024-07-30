@@ -80,7 +80,7 @@ namespace PrideMod.Features.MSCOwOify
         private static string DoYu(string entry)
         {
             var final = new List<string>();
-            foreach (var word in entry.Split(' '))
+            foreach (string word in entry.Split(' '))
             {
                 if (!string.IsNullOrEmpty(word))
                     final.Add(word[0] + new string(word.Substring(1).Select(c => YuTranslation.ContainsKey(c) ? YuTranslation[c][0] : c).ToArray()));
@@ -92,15 +92,15 @@ namespace PrideMod.Features.MSCOwOify
 
         private static string DoUwu(string entry)
         {
-            var regexed = ErReplace.Replace(entry, m => m.Groups[1].Value + "a");
-            var translated = new string(regexed.Select(c => UwuTranslation.ContainsKey(c) ? UwuTranslation[c] : c).ToArray());
+            string regexed = ErReplace.Replace(entry, m => m.Groups[1].Value + "a");
+            string translated = new string(regexed.Select(c => UwuTranslation.ContainsKey(c) ? UwuTranslation[c] : c).ToArray());
             return translated;
         }
 
         private static string DoSmiley(string entry)
         {
             var final = new List<string>();
-            foreach (var word in entry.Split(' '))
+            foreach (string word in entry.Split(' '))
             {
                 if (word.EndsWith(".", StringComparison.Ordinal) || word.EndsWith("?", StringComparison.Ordinal) || word.EndsWith("!", StringComparison.Ordinal))
                     final.Add(word + " " + Smileys[new Random().Next(Smileys.Length)]);
@@ -115,10 +115,10 @@ namespace PrideMod.Features.MSCOwOify
             if (stutterEveryNthWord < 1)
                 throw new ArgumentException(string.Format("stutterEveryNthWord must be above 0; passed {0}", stutterEveryNthWord));
 
-            var listofstr = Regex.Split(entry, @"(\s+)");
+            string[] listofstr = Regex.Split(entry, @"(\s+)");
             var result = new List<string>();
-            var wordsSinceLastStutter = 0;
-            foreach (var word in listofstr)
+            int wordsSinceLastStutter = 0;
+            foreach (string word in listofstr)
             {
                 if (!string.IsNullOrEmpty(word) && !string.IsNullOrEmpty(word))
                 {
@@ -141,10 +141,10 @@ namespace PrideMod.Features.MSCOwOify
 
             // Store the content between angle brackets
             var matches = new List<string>();
-            var index = 0;
+            int index = 0;
             foreach (Match match in AngleBrackets.Matches(entry))
             {
-                var content = match.Groups[0].Value;
+                string content = match.Groups[0].Value;
                 matches.Add(content);
                 entry = entry.Replace(content, "<" + index + ">");
                 index++;
@@ -163,7 +163,7 @@ namespace PrideMod.Features.MSCOwOify
                 entry = DoSmiley(entry);
 
             // Replace the content between angle brackets
-            for (var i = 0; i < matches.Count; i++)
+            for (int i = 0; i < matches.Count; i++)
             {
                 entry = entry.Replace("<" + i + ">", matches[i]);
             }

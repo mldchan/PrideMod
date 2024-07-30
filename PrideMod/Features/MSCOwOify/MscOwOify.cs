@@ -13,7 +13,7 @@ namespace PrideMod.Features.MSCOwOify
         
         internal static void ReapplyUwuification()
         {
-            foreach (var item in Resources.FindObjectsOfTypeAll<UwUifierScript>()) item.Reapply();
+            foreach (UwUifierScript item in Resources.FindObjectsOfTypeAll<UwUifierScript>()) item.Reapply();
         }
 
         internal static void ApplyUwuification()
@@ -21,19 +21,19 @@ namespace PrideMod.Features.MSCOwOify
             _timer += Time.deltaTime;
             if (_timer <= 30) return;
             _timer = 0;
-            foreach (var item in Resources.FindObjectsOfTypeAll<TextMesh>())
+            foreach (TextMesh item in Resources.FindObjectsOfTypeAll<TextMesh>())
             {
                 if (item.gameObject.GetComponent<UwUifierScript>() != null) continue;
                 item.gameObject.AddComponent<UwUifierScript>();
             }
 
-            foreach (var item in Resources.FindObjectsOfTypeAll<GUIText>())
+            foreach (GUIText item in Resources.FindObjectsOfTypeAll<GUIText>())
             {
                 if (item.gameObject.GetComponent<UwUifierScript>() != null) continue;
                 item.gameObject.AddComponent<UwUifierScript>();
             }
 
-            foreach (var item in Resources.FindObjectsOfTypeAll<Text>())
+            foreach (Text item in Resources.FindObjectsOfTypeAll<Text>())
             {
                 if (item.gameObject.GetComponent<UwUifierScript>() != null) continue;
                 item.gameObject.AddComponent<UwUifierScript>();
@@ -43,19 +43,19 @@ namespace PrideMod.Features.MSCOwOify
 
         internal static void ApplyUwuificationImmediate()
         {
-            foreach (var item in Resources.FindObjectsOfTypeAll<TextMesh>())
+            foreach (TextMesh item in Resources.FindObjectsOfTypeAll<TextMesh>())
             {
                 if (item.gameObject.GetComponent<UwUifierScript>() != null) continue;
                 item.gameObject.AddComponent<UwUifierScript>();
             }
 
-            foreach (var item in Resources.FindObjectsOfTypeAll<GUIText>())
+            foreach (GUIText item in Resources.FindObjectsOfTypeAll<GUIText>())
             {
                 if (item.gameObject.GetComponent<UwUifierScript>() != null) continue;
                 item.gameObject.AddComponent<UwUifierScript>();
             }
 
-            foreach (var item in Resources.FindObjectsOfTypeAll<Text>())
+            foreach (Text item in Resources.FindObjectsOfTypeAll<Text>())
             {
                 if (item.gameObject.GetComponent<UwUifierScript>() != null) continue;
                 item.gameObject.AddComponent<UwUifierScript>();

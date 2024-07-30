@@ -52,12 +52,12 @@ namespace PrideMod.Features.PrideFlags
         
         public static void SaveCustomFlags()
         {
-            var ser = new XmlSerializer(typeof(List<CustomFlag>));
-            var path = Path.Combine(Application.persistentDataPath, "CustomPrideFlags.xml");
+            XmlSerializer ser = new XmlSerializer(typeof(List<CustomFlag>));
+            string path = Path.Combine(Application.persistentDataPath, "CustomPrideFlags.xml");
             if (File.Exists(path))
                 File.Delete(path);
 
-            using (var str = File.OpenWrite(path))
+            using (FileStream str = File.OpenWrite(path))
             {
                 ser.Serialize(str, Custom);
             }
@@ -65,11 +65,11 @@ namespace PrideMod.Features.PrideFlags
 
         internal static void LoadCustomFlags()
         {
-            var ser = new XmlSerializer(typeof(List<CustomFlag>));
-            var path = Path.Combine(Application.persistentDataPath, "CustomPrideFlags.xml");
+            XmlSerializer ser = new XmlSerializer(typeof(List<CustomFlag>));
+            string path = Path.Combine(Application.persistentDataPath, "CustomPrideFlags.xml");
             if (!File.Exists(path)) return;
 
-            using (var str = File.OpenRead(path))
+            using (FileStream str = File.OpenRead(path))
             {
                 var dat = ser.Deserialize(str) as List<CustomFlag>;
                 if (dat == null) return;
@@ -82,55 +82,55 @@ namespace PrideMod.Features.PrideFlags
             Settings.AddHeader(mod, "Spawn Flags");
             Settings.AddButton(mod, "Spawn Lesbian Flag", delegate
             {
-                var flag = Object.Instantiate(Presets[4]); // 5 stripes flag
+                GameObject flag = Object.Instantiate(Presets[4]); // 5 stripes flag
 
                 flag.transform.position = Player.transform.position;
-                var flagT = flag.AddComponent<PrideFlag>();
+                PrideFlag flagT = flag.AddComponent<PrideFlag>();
 
                 flagT.SetType("lesbian");
             });
             Settings.AddButton(mod, "Spawn Gay Flag", delegate
             {
-                var flag = Object.Instantiate(Presets[5]); // 6 stripes flag
+                GameObject flag = Object.Instantiate(Presets[5]); // 6 stripes flag
 
                 flag.transform.position = Player.transform.position;
-                var flagT = flag.AddComponent<PrideFlag>();
+                PrideFlag flagT = flag.AddComponent<PrideFlag>();
 
                 flagT.SetType("gay");
             });
             Settings.AddButton(mod, "Spawn Bi Flag", delegate
             {
-                var flag = Object.Instantiate(Presets[2]); // 3 stripes with middle one smaller
+                GameObject flag = Object.Instantiate(Presets[2]); // 3 stripes with middle one smaller
 
                 flag.transform.position = Player.transform.position;
-                var flagT = flag.AddComponent<PrideFlag>();
+                PrideFlag flagT = flag.AddComponent<PrideFlag>();
 
                 flagT.SetType("bi");
             });
             Settings.AddButton(mod, "Spawn Trans Flag", delegate // my flag :3
             {
-                var flag = Object.Instantiate(Presets[4]); // 5 stripes
+                GameObject flag = Object.Instantiate(Presets[4]); // 5 stripes
 
                 flag.transform.position = Player.transform.position;
-                var flagT = flag.AddComponent<PrideFlag>();
+                PrideFlag flagT = flag.AddComponent<PrideFlag>();
 
                 flagT.SetType("trans");
             });
             Settings.AddButton(mod, "Spawn Intersex Flag", delegate
             {
-                var flag = Object.Instantiate(Presets[6]); // Intersex
+                GameObject flag = Object.Instantiate(Presets[6]); // Intersex
 
                 flag.transform.position = Player.transform.position;
-                var flagT = flag.AddComponent<PrideFlag>();
+                PrideFlag flagT = flag.AddComponent<PrideFlag>();
 
                 flagT.preset = PrideFlag.PrideFlagPreset.Intersex;
             });
             Settings.AddButton(mod, "Spawn Queer Flag", delegate
             {
-                var flag = Object.Instantiate(Presets[7]); // Queer
+                GameObject flag = Object.Instantiate(Presets[7]); // Queer
 
                 flag.transform.position = Player.transform.position;
-                var flagT = flag.AddComponent<PrideFlag>();
+                PrideFlag flagT = flag.AddComponent<PrideFlag>();
 
                 flagT.preset = PrideFlag.PrideFlagPreset.Queer;
             });
@@ -143,19 +143,19 @@ namespace PrideMod.Features.PrideFlags
             Settings.AddHeader(mod, "Manage Existing Flags");
             Settings.AddButton(mod, "Delete all flags", () =>
             {
-                foreach (var flag in Object.FindObjectsOfType<PrideFlag>()) Object.Destroy(flag.gameObject);
+                foreach (PrideFlag flag in Object.FindObjectsOfType<PrideFlag>()) Object.Destroy(flag.gameObject);
             });
             Settings.AddButton(mod, "Delete save file", () =>
             {
-                var path = Path.Combine(Application.persistentDataPath, "PrideFlags.xml");
+                string path = Path.Combine(Application.persistentDataPath, "PrideFlags.xml");
                 if (File.Exists(path))
                     File.Delete(path);
             });
             Settings.AddButton(mod, "Duplicate all the flags", () =>
             {
-                foreach (var flag in Object.FindObjectsOfType<PrideFlag>())
+                foreach (PrideFlag flag in Object.FindObjectsOfType<PrideFlag>())
                 {
-                    var duplicate = Object.Instantiate(flag.gameObject);
+                    GameObject duplicate = Object.Instantiate(flag.gameObject);
                     duplicate.name = flag.name;
                 }
             });
@@ -164,19 +164,19 @@ namespace PrideMod.Features.PrideFlags
         
         internal static void SaveFlags()
         {
-            var path = Path.Combine(Application.persistentDataPath, "PrideFlags.xml");
+            string path = Path.Combine(Application.persistentDataPath, "PrideFlags.xml");
             if (File.Exists(path)) File.Delete(path);
 
-            using (var stream = File.OpenWrite(path))
+            using (FileStream stream = File.OpenWrite(path))
             {
-                var serializer = new XmlSerializer(typeof(PrideFlagsData));
-                var flags = new PrideFlagsData();
+                XmlSerializer serializer = new XmlSerializer(typeof(PrideFlagsData));
+                PrideFlagsData flags = new PrideFlagsData();
 
-                foreach (var flag in Object.FindObjectsOfType<PrideFlag>())
+                foreach (PrideFlag flag in Object.FindObjectsOfType<PrideFlag>())
                 {
-                    var flagTransform = flag.transform;
-                    var flagPos = flagTransform.position;
-                    var flagRot = flagTransform.rotation;
+                    Transform flagTransform = flag.transform;
+                    Vector3 flagPos = flagTransform.position;
+                    Quaternion flagRot = flagTransform.rotation;
 
                     flags.Flags.Add(new PrideFlagData
                     {
@@ -201,22 +201,22 @@ namespace PrideMod.Features.PrideFlags
         
         internal static void LoadFlags()
         {
-            var path = Path.Combine(Application.persistentDataPath, "PrideFlags.xml");
+            string path = Path.Combine(Application.persistentDataPath, "PrideFlags.xml");
             if (!File.Exists(path)) return;
-            using (var stream = File.OpenRead(path))
+            using (FileStream stream = File.OpenRead(path))
             {
-                var serializer = new XmlSerializer(typeof(PrideFlagsData));
-                var flags = serializer.Deserialize(stream) as PrideFlagsData;
+                XmlSerializer serializer = new XmlSerializer(typeof(PrideFlagsData));
+                PrideFlagsData flags = serializer.Deserialize(stream) as PrideFlagsData;
 
                 if (flags == null) return;
 
-                foreach (var flag in flags.Flags)
+                foreach (PrideFlagData flag in flags.Flags)
                 {
-                    var flag2 = Object.Instantiate(Presets[(int)flag.Preset]);
+                    GameObject flag2 = Object.Instantiate(Presets[(int)flag.Preset]);
 
                     flag2.transform.position = new Vector3(flag.PosX, flag.PosY, flag.PosZ);
                     flag2.transform.rotation = new Quaternion(flag.RotX, flag.RotY, flag.RotZ, flag.RotW);
-                    var flagT = flag2.AddComponent<PrideFlag>();
+                    PrideFlag flagT = flag2.AddComponent<PrideFlag>();
 
                     flagT.name = flag.Name;
                     flagT.preset = flag.Preset;
@@ -229,7 +229,7 @@ namespace PrideMod.Features.PrideFlags
         internal static AssetBundle ReadAssetBundle()
         {
             byte[] bytes;
-            using (var s = Assembly.GetExecutingAssembly()
+            using (Stream s = Assembly.GetExecutingAssembly()
                        .GetManifestResourceStream("PrideMod.Resources.prideflags.unity3d"))
             {
                 bytes = new byte[s.Length];
@@ -238,7 +238,7 @@ namespace PrideMod.Features.PrideFlags
 
             if (bytes.Length == 0) throw new FileLoadException("Could not load prideflags.unity3d from DLL!");
 
-            var assetBundle = AssetBundle.CreateFromMemoryImmediate(bytes);
+            AssetBundle assetBundle = AssetBundle.CreateFromMemoryImmediate(bytes);
             return assetBundle;
         }
     }

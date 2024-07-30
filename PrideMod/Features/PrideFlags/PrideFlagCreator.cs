@@ -9,10 +9,10 @@ namespace PrideMod.Features.PrideFlags
     {
         public void GUIFlagCreator()
         {
-            var w = Screen.width;
-            var h = Screen.height;
-            var halfWidth = w / 2f;
-            var halfHeight = h / 2f;
+            int w = Screen.width;
+            int h = Screen.height;
+            float halfWidth = w / 2f;
+            float halfHeight = h / 2f;
             switch (PrideFlagsMod.EditorData.Window)
             {
                 case PrideFlagsMod.EditorCurrentWindow.List:
@@ -34,7 +34,7 @@ namespace PrideMod.Features.PrideFlags
 
         private void GUIFlagCreator_ColorEdit(float halfWidth, float halfHeight)
         {
-            var selected = PrideFlagsMod.Custom.FirstOrDefault(x => x.Name == PrideFlagsMod.EditorData.CurrentName);
+            CustomFlag selected = PrideFlagsMod.Custom.FirstOrDefault(x => x.Name == PrideFlagsMod.EditorData.CurrentName);
             if (selected == null)
             {
                 PrideFlagsMod.EditorData.CurrentName = "";
@@ -42,7 +42,7 @@ namespace PrideMod.Features.PrideFlags
                 return;
             }
 
-            var txt = "";
+            string txt = "";
             switch (PrideFlagsMod.EditorData.EditingColor)
             {
                 case 1:
@@ -77,7 +77,7 @@ namespace PrideMod.Features.PrideFlags
             PrideFlagsMod.EditorData.EditingColorB = GUI.HorizontalSlider(
                 new Rect(halfWidth - 40, halfHeight + 10, 130, 20), PrideFlagsMod.EditorData.EditingColorB, 0f, 1f);
 
-            var a = GUI.contentColor;
+            Color a = GUI.contentColor;
             GUI.contentColor = new Color(PrideFlagsMod.EditorData.EditingColorR,
                 PrideFlagsMod.EditorData.EditingColorG, PrideFlagsMod.EditorData.EditingColorB);
             GUI.Label(new Rect(halfWidth - 95, halfHeight + 30, 190, 20), "This is how it looks");
@@ -166,7 +166,7 @@ namespace PrideMod.Features.PrideFlags
 
         private void GUIFlagCreator_Edit(float halfWidth, float halfHeight)
         {
-            var selected = PrideFlagsMod.Custom.FirstOrDefault(x => x.Name == PrideFlagsMod.EditorData.CurrentName);
+            CustomFlag selected = PrideFlagsMod.Custom.FirstOrDefault(x => x.Name == PrideFlagsMod.EditorData.CurrentName);
             if (selected == null)
             {
                 PrideFlagsMod.EditorData.CurrentName = "";
@@ -273,7 +273,7 @@ namespace PrideMod.Features.PrideFlags
 
             PrideFlagsMod.EditorData.NewName =
                 GUI.TextField(new Rect(halfWidth - 95, halfHeight - 80, 190, 20), PrideFlagsMod.EditorData.NewName);
-            var originalColor = GUI.contentColor;
+            Color originalColor = GUI.contentColor;
             GUI.Label(new Rect(halfWidth - 95, halfHeight - 60, 190, 20), "Flag layout");
             if (PrideFlagsMod.EditorData.NewPreset == PrideFlag.PrideFlagPreset.Two)
                 GUI.contentColor = Color.green;
@@ -314,7 +314,7 @@ namespace PrideMod.Features.PrideFlags
             GUI.Label(new Rect(halfWidth - 90, halfHeight + 80, 190, 20), "Create flag");
 
 
-            var existingFlag = PrideFlagsMod.Custom.FirstOrDefault(x => x.Name == PrideFlagsMod.EditorData.NewName);
+            CustomFlag existingFlag = PrideFlagsMod.Custom.FirstOrDefault(x => x.Name == PrideFlagsMod.EditorData.NewName);
             if (existingFlag == null && GUI.Button(new Rect(halfWidth - 95, halfHeight + 100, 190, 20), "Create"))
             {
                 PrideFlagsMod.Custom.Add(new CustomFlag
@@ -338,7 +338,7 @@ namespace PrideMod.Features.PrideFlags
             }
             else if (existingFlag != null)
             {
-                var a = GUI.contentColor;
+                Color a = GUI.contentColor;
                 GUI.contentColor = Color.red;
                 GUI.Label(new Rect(halfWidth - 95, halfHeight + 100, 190, 20), "An existing flag has been found");
                 GUI.contentColor = a;
@@ -354,19 +354,19 @@ namespace PrideMod.Features.PrideFlags
             if (GUI.Button(new Rect(halfWidth + 175, halfHeight - 285, 20, 20), "x"))
                 PrideFlagsMod.EditorData.Show = false;
 
-            var i = 0;
+            int i = 0;
             CustomFlag toRemove = null;
 
-            foreach (var customFlag in PrideFlagsMod.Custom)
+            foreach (CustomFlag customFlag in PrideFlagsMod.Custom)
             {
                 GUI.Label(new Rect(halfWidth - 195, halfHeight - 260 + i, 390, 20), customFlag.Name);
                 if (GUI.Button(new Rect(halfWidth - 35, halfHeight - 260 + i, 80, 20), "Spawn"))
                 {
-                    var flag = Object.Instantiate(PrideFlagsMod.Presets[(int)customFlag.Preset]);
+                    GameObject flag = Object.Instantiate(PrideFlagsMod.Presets[(int)customFlag.Preset]);
                     
                     flag.transform.position = PrideFlagsMod.Player.transform.position;
                     flag.name = $"{customFlag.Name} Flag (Clone)";
-                    var flagT = flag.AddComponent<PrideFlag>();
+                    PrideFlag flagT = flag.AddComponent<PrideFlag>();
 
                     flagT.preset = customFlag.Preset;
                     flagT.SetColours(customFlag.Colours);

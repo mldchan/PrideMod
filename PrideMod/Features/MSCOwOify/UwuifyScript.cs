@@ -9,7 +9,7 @@ namespace PrideMod.Features.MSCOwOify
 
         private static UwuifyFlag GetFlags()
         {
-            var flags = UwuifyFlag.None;
+            UwuifyFlag flags = UwuifyFlag.None;
 
             if (MscOwOify.smileys.GetValue()) flags |= UwuifyFlag.Smiley;
             if (MscOwOify.stutter.GetValue()) flags |= UwuifyFlag.Stutter;
