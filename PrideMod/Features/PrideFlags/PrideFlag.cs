@@ -97,10 +97,10 @@ namespace PrideMod.Features.PrideFlags
         {
             colours = paramColours;
 
-            for (var i = 0; i < transform.childCount; i++)
+            for (int i = 0; i < transform.childCount; i++)
             {
-                var child = transform.GetChild(i);
-                var c = Color.white;
+                Transform child = transform.GetChild(i);
+                Color c = Color.white;
                 switch (i)
                 {
                     case 0:

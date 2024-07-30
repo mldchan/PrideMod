@@ -56,7 +56,7 @@ namespace PrideMod
         {
             #region Pride Flags
 
-            var path = Path.Combine(Application.persistentDataPath, "PrideFlags.xml");
+            string path = Path.Combine(Application.persistentDataPath, "PrideFlags.xml");
             if (!File.Exists(path))
                 File.Delete(path);
 
@@ -76,19 +76,19 @@ namespace PrideMod
                 "Default", "LGBTQ", "Transgender", "NonBinary", "Pansexual", "Polish", "Custom"
             }, 1);
 
-            var color1 = Settings.AddColorPickerRGB(this, "PrideGUI1", "First Color",
+            SettingsColorPicker color1 = Settings.AddColorPickerRGB(this, "PrideGUI1", "First Color",
                 defaultColor: new Color32(245, 249, 15, 255));
-            var color2 = Settings.AddColorPickerRGB(this, "PrideGUI2", "Second Color",
+            SettingsColorPicker color2 = Settings.AddColorPickerRGB(this, "PrideGUI2", "Second Color",
                 defaultColor: new Color32(245, 249, 15, 255));
-            var color3 = Settings.AddColorPickerRGB(this, "PrideGUI3", "Third Color",
+            SettingsColorPicker color3 = Settings.AddColorPickerRGB(this, "PrideGUI3", "Third Color",
                 defaultColor: new Color32(245, 249, 15, 255));
-            var color4 = Settings.AddColorPickerRGB(this, "PrideGUI4", "Fourth Color",
+            SettingsColorPicker color4 = Settings.AddColorPickerRGB(this, "PrideGUI4", "Fourth Color",
                 defaultColor: new Color32(245, 249, 15, 255));
-            var color5 = Settings.AddColorPickerRGB(this, "PrideGUI5", "Fifth Color",
+            SettingsColorPicker color5 = Settings.AddColorPickerRGB(this, "PrideGUI5", "Fifth Color",
                 defaultColor: new Color32(245, 249, 15, 255));
-            var color6 = Settings.AddColorPickerRGB(this, "PrideGUI6", "Sixth Color",
+            SettingsColorPicker color6 = Settings.AddColorPickerRGB(this, "PrideGUI6", "Sixth Color",
                 defaultColor: new Color32(245, 249, 15, 255));
-            var color7 = Settings.AddColorPickerRGB(this, "PrideGUI7", "Seventh Color",
+            SettingsColorPicker color7 = Settings.AddColorPickerRGB(this, "PrideGUI7", "Seventh Color",
                 defaultColor: new Color32(245, 249, 15, 255));
 
             PrideGUI.SetColours(color1, color2, color3, color4, color5, color6, color7);
@@ -134,7 +134,7 @@ namespace PrideMod
 
             #region Pride Flags
 
-            var assetBundle = PrideFlagsMod.ReadAssetBundle();
+            AssetBundle assetBundle = PrideFlagsMod.ReadAssetBundle();
 
             PrideFlagsMod.Presets.Add(assetBundle.LoadAsset<GameObject>("2")); // 2 stripes
             PrideFlagsMod.Presets.Add(assetBundle.LoadAsset<GameObject>("3")); // 3 stripes
