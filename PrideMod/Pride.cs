@@ -13,7 +13,7 @@ namespace PrideMod
 
         public override string Version => "0.3";
 
-        public override string Author => "アカツキ";
+        public override string Author => "アカツキ2555";
 
         private SettingsDropDownList _prideGUISelection;
 
