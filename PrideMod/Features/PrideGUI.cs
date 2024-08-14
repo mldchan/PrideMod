@@ -9,7 +9,6 @@ namespace PrideMod.Features
 {
     internal class PrideGUI
     {
-
         // 0 - none, 1 - gay menu, 2 - trans menu, 3 - nb menu, 4 - pan menu
         public static void Load(SettingsDropDownList dropDownList)
         {
@@ -63,6 +62,19 @@ namespace PrideMod.Features
                     dirtiness.color = new Color32(210, 31, 60, 255);
                     break;
                 case 6:
+                    hunger.color = new Color32(215, 10, 116, 255);
+                    thirst.color = new Color32(215, 10, 116, 255);
+                    stress.color = new Color32(156, 84, 151, 255);
+                    urine.color = new Color32(8, 62, 171, 255);
+                    fatigue.color = new Color32(8, 62, 171, 255);
+                    break;
+                case 7:
+                    hunger.color = new Color32(8, 8, 8, 255);
+                    thirst.color = new Color32(164, 164, 164, 255);
+                    stress.color = new Color32(238, 238, 238, 255);
+                    urine.color = new Color32(118, 7, 118, 255);
+                    break;
+                case 8:
                     hunger.color = customPickers[0].GetValue();
                     thirst.color = customPickers[1].GetValue();
                     stress.color = customPickers[2].GetValue();
@@ -76,11 +88,13 @@ namespace PrideMod.Features
 
         internal static SettingsColorPicker[] customPickers = new SettingsColorPicker[7];
 
-        internal static void SetColours(SettingsColorPicker color1, SettingsColorPicker color2, SettingsColorPicker color3, SettingsColorPicker color4, SettingsColorPicker color5, SettingsColorPicker color6, SettingsColorPicker color7)
+        internal static void SetColours(SettingsColorPicker color1, SettingsColorPicker color2,
+            SettingsColorPicker color3, SettingsColorPicker color4, SettingsColorPicker color5,
+            SettingsColorPicker color6, SettingsColorPicker color7)
         {
             customPickers[0] = color1;
             customPickers[1] = color2;
-            customPickers[2] = color3;  
+            customPickers[2] = color3;
             customPickers[3] = color4;
             customPickers[4] = color5;
             customPickers[5] = color6;

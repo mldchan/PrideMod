@@ -71,9 +71,9 @@ namespace PrideMod
 
             Settings.AddHeader(this, "Pride Stats", collapsedByDefault: true);
 
-            _prideGUISelection = Settings.AddDropDownList(this, "PrideGUI", "Pride GUI type", new string[]
+            _prideGUISelection = Settings.AddDropDownList(this, "PrideGUI", "Pride GUI type", new[]
             {
-                "Default", "LGBTQ", "Transgender", "NonBinary", "Pansexual", "Polish", "Custom"
+                "Default", "LGBTQ", "Transgender", "NonBinary", "Pansexual", "Polish", "Bisexual", "Asexual", "Custom"
             }, 1);
 
             SettingsColorPicker color1 = Settings.AddColorPickerRGB(this, "PrideGUI1", "First Color",
